@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+80946a7dc275c8e443a6afe42b5c7e8e CMakeFiles/qtWispr_autogen
+ee11f98e9cf3cc535515538b782daee7 qtWispr_autogen/EWIEGA46WW/qrc_resources.cpp
+ee4eb80bb551cc4d2fcafd5a555e6c24 qtWispr_autogen/timestamp

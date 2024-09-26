@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/fais/punk.systems/code/c/qtWispr/build/qtWispr_autogen",
+	"CMAKE_BINARY_DIR" : "/home/fais/punk.systems/code/c/qtWispr/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/fais/punk.systems/code/c/qtWispr/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/fais/punk.systems/code/c/qtWispr",
+	"CMAKE_SOURCE_DIR" : "/home/fais/punk.systems/code/c/qtWispr",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Unix Makefiles",
+	"INCLUDE_DIR" : "/home/fais/punk.systems/code/c/qtWispr/build/qtWispr_autogen/include",
+	"INPUTS" : [ "/home/fais/punk.systems/code/c/qtWispr/fonts/GohuFont.ttf" ],
+	"LOCK_FILE" : "/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/qtWispr_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/qtWispr_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/fais/punk.systems/code/c/qtWispr/resources.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

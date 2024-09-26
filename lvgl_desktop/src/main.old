@@ -1,0 +1,130 @@
+/**
+  ******************************************************************************
+  * @file    main.c
+  * @author  Ac6
+  * @version V1.0
+  * @date    01-December-2013
+  * @brief   Default main function.
+  ******************************************************************************
+*/
+
+
+#include "core/lv_obj.h"
+#include "core/lv_obj_event.h"
+#include "core/lv_obj_pos.h"
+#include "display/lv_display.h"
+#include "app_hal.h"
+
+#include "demos/lv_demos.h"
+#include "layouts/flex/lv_flex.h"
+#include "layouts/lv_layout.h"
+#include "misc/lv_area.h"
+#include "misc/lv_event.h"
+#include "misc/lv_types.h"
+#include "widgets/button/lv_button.h"
+#include "widgets/calendar/lv_calendar.h"
+#include "widgets/checkbox/lv_checkbox.h"
+#include "widgets/list/lv_list.h"
+#include "widgets/textarea/lv_textarea.h"
+
+
+void example_lvgl_demo_ui();
+static void button_event_handler();
+static void textarea_event_handler();
+
+int main(void)
+{
+	lv_init();
+
+	hal_setup();
+
+  /*lv_demo_widgets();*/
+	example_lvgl_demo_ui();
+
+	hal_loop();
+}
+
+lv_obj_t * keyboard;
+
+void example_lvgl_demo_ui() {
+  lv_obj_t *scr = lv_screen_active();
+  /*lv_obj_set_style_text_font(scr, &lv_font_unscii_16, 0);*/
+
+  keyboard = lv_keyboard_create(scr);
+  lv_obj_set_size(keyboard, LV_HOR_RES, LV_VER_RES * 0.667);
+  lv_obj_set_style_bg_color(keyboard, lv_color_black(), LV_STATE_DEFAULT);
+  lv_obj_set_style_text_color(keyboard, lv_color_white(), LV_STATE_DEFAULT);
+  lv_obj_align(keyboard, LV_ALIGN_BOTTOM_MID, 0, 0);
+  lv_obj_add_flag(keyboard, LV_OBJ_FLAG_HIDDEN);
+
+  lv_obj_t *textbox = lv_textarea_create(scr);
+  lv_obj_set_size(textbox, LV_HOR_RES / 2, LV_VER_RES / 3);
+  lv_obj_align(textbox, LV_ALIGN_TOP_LEFT, 0, 0);
+  lv_obj_set_style_bg_color(textbox, lv_color_black(), LV_STATE_DEFAULT);
+  lv_obj_set_style_text_color(textbox, lv_color_white(), LV_STATE_DEFAULT);
+  lv_obj_add_event_cb(textbox, textarea_event_handler, LV_EVENT_CLICKED, NULL);
+
+  lv_obj_t *todo_list = lv_list_create(scr);
+  lv_obj_set_align(todo_list, LV_ALIGN_TOP_RIGHT);
+  lv_obj_set_size(todo_list, LV_HOR_RES / 2, LV_VER_RES / 3);
+
+  lv_obj_t *todo = lv_obj_create(todo_list);
+  lv_obj_set_layout(todo, LV_LAYOUT_FLEX);
+  lv_obj_set_flex_flow(todo, LV_FLEX_FLOW_ROW);
+  lv_obj_set_size(todo, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_set_style_pad_all(todo, 0, LV_PART_MAIN);  // Set padding for all sides to 0
+  /*lv_obj_set_style_pad_gap(todo, 0, LV_PART_MAIN);  // Set gap between children to 0*/
+  lv_obj_set_style_border_width(todo, 0, LV_PART_MAIN);
+
+  lv_obj_t * checkbox = lv_checkbox_create(todo);
+  lv_checkbox_set_text(checkbox, "");
+  lv_obj_set_style_pad_all(checkbox, 5, LV_PART_MAIN);  // Set padding for all sides to 0
+
+  lv_obj_t * todo_txt = lv_textarea_create(todo);
+  lv_textarea_set_one_line(todo_txt, true);
+  lv_obj_set_style_pad_all(todo_txt, 0, LV_PART_MAIN);  // Set padding for all sides to 0
+  lv_obj_set_size(todo_txt, lv_obj_get_width(todo_list) * 0.6667, lv_obj_get_height(todo_list)  / 3);
+
+  static lv_style_t style_btn;
+  lv_style_init(&style_btn);
+  lv_style_set_bg_color(&style_btn, lv_color_black());
+  lv_style_set_text_color(&style_btn, lv_color_white());
+  lv_obj_add_style(keyboard, &style_btn, LV_PART_MAIN);
+  lv_obj_add_style(keyboard, &style_btn, LV_PART_ITEMS);
+
+  static lv_style_t style_btn_checked;
+  lv_style_init(&style_btn_checked);
+  lv_style_set_bg_color(&style_btn_checked, lv_color_make(0xaa, 0xaa, 0xaa));
+  lv_obj_add_style(keyboard, &style_btn_checked, LV_PART_ITEMS | LV_STATE_PRESSED);
+
+  /*lv_obj_t * calendarBtn = lv_button_create(scr);*/
+  /*lv_obj_add_event_cb(calendarBtn, button_event_handler, LV_EVENT_CLICKED, NULL);*/
+}
+
+static void button_event_handler(lv_event_t * e) {
+    static lv_obj_t * calendar = NULL;
+
+    if (calendar == NULL) {
+        // Create a calendar if it does not exist yet
+        calendar = lv_calendar_create(lv_scr_act());
+        lv_obj_set_size(calendar, 200, 200); // Set size of the calendar
+        lv_obj_align(calendar, LV_ALIGN_CENTER, 0, 0); // Center on the screen
+    } else {
+        // Toggle calendar visibility
+        if (lv_obj_is_visible(calendar)) {
+            lv_obj_add_flag(calendar, LV_OBJ_FLAG_HIDDEN); // Hide the calendar
+        } else {
+            lv_obj_clear_flag(calendar, LV_OBJ_FLAG_HIDDEN); // Show the calendar
+        }
+    }
+}
+
+static void textarea_event_handler(lv_event_t * e) {
+    lv_obj_t *textarea = lv_event_get_target(e);
+
+    // Show the keyboard when the textarea is clicked
+    lv_obj_clear_flag(keyboard, LV_OBJ_FLAG_HIDDEN);
+
+    // Focus the keyboard on the clicked textarea
+    lv_keyboard_set_textarea(keyboard, textarea);
+}

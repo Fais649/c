@@ -1,0 +1,3 @@
+/home/fais/punk.code/c/ss/build/CMakeFiles/ss.dir
+/home/fais/punk.code/c/ss/build/CMakeFiles/edit_cache.dir
+/home/fais/punk.code/c/ss/build/CMakeFiles/rebuild_cache.dir

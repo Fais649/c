@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>qtWispr</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: black; color: white; border: 1px solid white;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_main">
+    <item>
+     <widget class="QWidget" name="topPanel">
+      <layout class="QHBoxLayout" name="horizontalLayout_topPanel">
+       <item>
+        <widget class="QPushButton" name="prevButton">
+         <property name="text">
+          <string>&lt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; background-color: black; border: none;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dateLabel">
+         <property name="text">
+          <string>yyyy-MM-dd</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; background-color: black;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="nextButton">
+         <property name="text">
+          <string>&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; background-color: black; border: none;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">background-color: black; color: white;</string>
+      </property>
+      <widget class="QWidget" name="tab_todo">
+       <attribute name="title">
+        <string>To-Do List</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_todo">
+        <item>
+         <widget class="QListWidget" name="todoListWidget">
+          <property name="styleSheet">
+           <string notr="true">background-color: black; color: white;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_todoInput">
+          <item>
+           <widget class="QLineEdit" name="todoLineEdit">
+            <property name="placeholderText">
+             <string>Add new item</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: black; color: white; border: 1px solid white;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addTodoButton">
+            <property name="text">
+             <string>Add</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: white; background-color: black; border: 1px solid white;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_notepad">
+       <attribute name="title">
+        <string>Notepad</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_notepad">
+        <item>
+         <widget class="QTextEdit" name="notepadTextEdit">
+          <property name="styleSheet">
+           <string notr="true">background-color: black; color: white; border: 1px solid white;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_alarms">
+       <attribute name="title">
+        <string>Alarms</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_alarms">
+        <item>
+         <widget class="QListWidget" name="alarmListWidget">
+          <property name="styleSheet">
+           <string notr="true">background-color: black; color: white;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_alarmInput">
+          <item>
+           <widget class="QTimeEdit" name="alarmTimeEdit">
+            <property name="styleSheet">
+             <string notr="true">background-color: black; color: white; border: 1px solid white;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="alarmMessageLineEdit">
+            <property name="placeholderText">
+             <string>Alarm message</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: black; color: white; border: 1px solid white;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addAlarmButton">
+            <property name="text">
+             <string>Add</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: white; background-color: black; border: 1px solid white;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
