@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/qtWispr.dir/qtWispr_autogen/mocs_compilation.cpp.o CMakeFiles/qtWispr.dir/main.cpp.o CMakeFiles/qtWispr.dir/mainwindow.cpp.o CMakeFiles/qtWispr.dir/qtWispr_autogen/EWIEGA46WW/qrc_resources.cpp.o -o bin/qtWispr  /usr/lib/libQt6Widgets.so.6.7.2 /usr/lib/libQt6Gui.so.6.7.2 /usr/lib/libQt6Core.so.6.7.2 /usr/lib/libGLX.so /usr/lib/libOpenGL.so

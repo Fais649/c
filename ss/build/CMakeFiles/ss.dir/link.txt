@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/ss.dir/src/main.c.o -o ss  /home/fais/punk.code/c/ss/lib/libui/libui.a

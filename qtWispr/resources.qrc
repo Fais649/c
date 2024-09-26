@@ -1,6 +1,0 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-    <qresource>
-        <file alias="fonts/GohuFont.ttf">fonts/GohuFont.ttf</file>
-    </qresource>
-</RCC>

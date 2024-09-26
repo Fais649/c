@@ -1,5 +1,0 @@
-/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/qtWispr.dir
-/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/edit_cache.dir
-/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/rebuild_cache.dir
-/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/qtWispr_autogen_timestamp_deps.dir
-/home/fais/punk.systems/code/c/qtWispr/build/CMakeFiles/qtWispr_autogen.dir
